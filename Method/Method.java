@@ -8,6 +8,7 @@ public class Method {
         int a = scanner.nextInt();
         int b = scanner.nextInt();
         System.out.println(a + b);
+        System.out.println();
         System.out.println(add(a,b));
     }
     // add 메서드
