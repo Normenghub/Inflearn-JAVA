@@ -14,12 +14,12 @@ public class ProductOrderMain {
         product1.quantity = 2;
         product2.quantity = 1;
         product3.quantity = 2;
-        int sumPrice = product1.price * product1.quantity + product2.price* product2.quantity + product3.price* product3.quantity;
+        int sumPrice = 0;
         ProductOrder[] products = {product1, product2, product3};
 
         for(ProductOrder product: products){
             System.out.println("상품명: " + product.productName + " 가격: " + product.price + " 수량: " + product.quantity);
-
+            sumPrice += product.price * product.quantity;
         }
         System.out.println("총 결제 금액: " + sumPrice);
 
