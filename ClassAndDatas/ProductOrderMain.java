@@ -2,26 +2,35 @@ package ClassAndDatas;
 
 public class ProductOrderMain {
     public static void main(String[] args) {
-        ProductOrder product1 = new ProductOrder();
-        ProductOrder product2 = new ProductOrder();
-        ProductOrder product3 = new ProductOrder();
-        product1.productName = "두부";
-        product2.productName = "김치";
-        product3.productName = "콜라";
-        product1.price = 2000;
-        product2.price = 5000;
-        product3.price = 1500;
-        product1.quantity = 2;
-        product2.quantity = 1;
-        product3.quantity = 2;
-        int sumPrice = 0;
-        ProductOrder[] products = {product1, product2, product3};
+       ProductOrder[] orders = new ProductOrder[3];
+       orders[0] = createProductOrder("두부",2000,2);
+       orders[1] = createProductOrder("김치",5000,1);
+       orders[2] = createProductOrder("콜라",1500,2);
 
-        for(ProductOrder product: products){
-            System.out.println("상품명: " + product.productName + " 가격: " + product.price + " 수량: " + product.quantity);
-            sumPrice += product.price * product.quantity;
+       printOrders(orders);
+
+        System.out.println("총 결제 금액 : " + getTotalAmount(orders));
+
+    }
+    static ProductOrder createProductOrder(String productName, int price, int quantity) {
+        ProductOrder order = new ProductOrder();
+        order.productName = productName;
+        order.price = price;
+        order.quantity = quantity;
+        return order;
+    }
+    static void printOrders(ProductOrder[] orders) {
+        for(ProductOrder order : orders) {
+            System.out.println("상품명 : " + order.productName + " 가격 : " + order.price + " 수량 : " + order.quantity);
+
         }
-        System.out.println("총 결제 금액: " + sumPrice);
 
+    }
+    static int getTotalAmount(ProductOrder[] orders) {
+        int amount = 0;
+        for(ProductOrder order : orders) {
+            amount += order.price * order.quantity;
+        }
+        return amount;
     }
 }
