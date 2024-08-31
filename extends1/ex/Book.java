@@ -1,7 +1,7 @@
 package extends1.ex;
 
 public class Book extends Item{
-    String author,isbn;
+    private String author,isbn;
 
 
 

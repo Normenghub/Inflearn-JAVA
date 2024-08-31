@@ -1,7 +1,7 @@
 package extends1.ex;
 
 public class Movie extends Item{
-    String director, actor;
+    private String director, actor;
     public Movie(String name, int price, String director, String actor){
         super(name, price);
         this.director = director;
